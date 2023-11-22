@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: rgb(255, 167, 38);
+    padding: 1.5rem; 
+  }
+
+  .navbar-button {
+    display: inline-block;
+    margin-right: 1rem;
+    color: #ffffff;
+    border: 2px;
+  }
+  
+  .navbar-button:hover {
+    color: black; 
+  }
+
+  .a{
+    border: 2px;
+  }

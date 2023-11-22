@@ -1,0 +1,49 @@
+.container{
+    padding: 1rem;
+}
+
+.intro{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    margin: 0rem;
+    background-color: rgb(99, 194, 161);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.information{
+    padding: 2rem;
+}
+h1{
+    font-size: larger;
+    font-weight: bolder;
+
+}
+.link{
+    font-weight: bold;
+    color: red;
+    text-decoration: underline;
+}
+
+.link:hover{
+    color: blue;
+}
+
+.card {
+    background-color: rgb(173, 176, 175);;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(349px, 1fr)); 
+    gap: 20px; 
+    list-style: none;
+    padding: 0;
+  }
