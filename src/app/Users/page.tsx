@@ -1,5 +1,4 @@
 import React from 'react'
-import useSWR from 'swr'
 import './User.css'
 
 interface User {
