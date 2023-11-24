@@ -2,7 +2,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import './Form.css';
 
-
 interface FormData {
   name: string;
   age: string;
@@ -17,6 +16,7 @@ export default function Form() {
     email: '',
     phone: '',
   });
+  const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>, fieldName: keyof FormData) => {
     const { value } = e.target;
@@ -29,6 +29,18 @@ export default function Form() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const errors: string[] = [];
+    for (const key in formData) {
+      if (!formData[key as keyof FormData]) {
+        errors.push(`${key} is required`);
+      }
+    }
+
+    if (errors.length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
     try {
       const response = await fetch('https://95ba-103-207-1-157.ngrok-free.app/save', {
         method: 'POST',
@@ -39,7 +51,7 @@ export default function Form() {
       });
 
       if (response.ok) {
-        alert('Data Successfully submitted')
+        alert('Data Successfully submitted');
         const responseData = await response.json();
         console.log(responseData.res);
         setFormData({
@@ -48,6 +60,7 @@ export default function Form() {
           email: '',
           phone: '',
         });
+        setFormErrors([]);
       } else {
         console.error('Form submission failed');
       }
@@ -60,6 +73,17 @@ export default function Form() {
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
         <h1 className="text-3xl text-center font-semibold p-6">Form</h1>
+
+        {formErrors.length > 0 && (
+          <div className="error-messages">
+            {formErrors.map((error, index) => (
+              <p key={index} className="error-message">
+                {error}
+              </p>
+            ))}
+          </div>
+        )}
+
         <div className="form-sub">
           <label className="label">Name</label>
           <input
