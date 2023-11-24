@@ -30,7 +30,7 @@ export default function Form() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:4000/save', {
+      const response = await fetch('https://95ba-103-207-1-157.ngrok-free.app/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ interface User {
 
 const Users  = async () => {
 
-  const res = await  fetch('http://localhost:4000/data', {cache: 'no-store'})
+  const res = await  fetch('https://95ba-103-207-1-157.ngrok-free.app/data', {cache: 'no-store'})
   const data: User [] = await res.json()
   return (
     <div className="container">
